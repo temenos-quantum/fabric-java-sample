@@ -32,8 +32,8 @@ public class TimestampPostProcessorTest {
 
 	@Test(testName = "Test timestamp", enabled=true)
 	public void testTimestamp() throws Exception {
-		TimestampPostProcessor ts = new TimestampPostProcessor();
-		Result result = ts.execute(new Result(), request, response);
+		TimestampPostProcessor tsp = new TimestampPostProcessor();
+		Result result = tsp.execute(new Result(), request, response);
 		String timeStamp = new SimpleDateFormat(TimestampPostProcessor.TIMESTAMP_FORMAT).format(new Date());
 		assertEquals(result.getParamByName("timestamp").getValue(), timeStamp);
 	}

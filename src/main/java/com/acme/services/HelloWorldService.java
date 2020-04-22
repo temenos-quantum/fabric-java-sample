@@ -12,6 +12,9 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Says hello or goodbye to the world.
+ */
 public class HelloWorldService implements JavaService2{
 
 	private static final Logger LOGGER = Logger.getLogger( HelloWorldService.class.getName() );

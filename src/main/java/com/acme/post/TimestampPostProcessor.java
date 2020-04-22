@@ -12,6 +12,9 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Adds a timestamp to the output.
+ */
 public class TimestampPostProcessor implements DataPostProcessor2{
 
 	public static final String TIMESTAMP_FORMAT = "yyyy-MM-dd'T'HH:mm";

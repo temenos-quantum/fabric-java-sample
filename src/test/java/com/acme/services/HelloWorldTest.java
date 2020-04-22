@@ -3,6 +3,7 @@ package com.acme.services;
 import com.konylabs.middleware.controller.DataControllerRequest;
 import com.konylabs.middleware.controller.DataControllerResponse;
 import com.konylabs.middleware.dataobject.Result;
+import org.testng.annotations.*;
 
 import java.util.HashMap;
 
@@ -11,31 +12,47 @@ import static org.testng.Assert.*;
 
 public class HelloWorldTest {
 
-	@org.testng.annotations.BeforeMethod
-	public void setUp() throws Exception {
-	}
+	DataControllerRequest request;
+	HashMap<String, Object> headers;
 
-	@org.testng.annotations.AfterMethod
-	public void tearDown() throws Exception {
-	}
+	DataControllerResponse response;
 
-	@org.testng.annotations.Test
-	public void testInvoke() throws Exception {
+	HashMap<String, Object> cfgMap;
+	HashMap<String, Object> inMap;
+	HashMap<String, Object> outMap;
+	Object[] maps;
+
+	@BeforeTest
+	public void mockInvocation(){
+
+		//Let's initialise the request, response, config, inputs, outputs and headers to pretend this is a Fabric runtime.
 
 		//Mock the request.
-		DataControllerRequest request = mock(DataControllerRequest.class);
-		HashMap<String, Object> headers = (HashMap<String, Object>)request.getHeaderMap();
+		request = mock(DataControllerRequest.class);
+		headers = (HashMap<String, Object>)request.getHeaderMap();
 
 		//Mock the response.
-		DataControllerResponse response = mock(DataControllerResponse.class);
+		response = mock(DataControllerResponse.class);
 
-		HashMap<String, Object> cfgMap = new HashMap <String, Object>(); //Configurations.
-		HashMap<String, Object> inMap = new HashMap <String, Object>(); //Input parameters.
-		HashMap<String, Object> outMap = new HashMap <String, Object>(); //Output parameters.
-		Object[] maps = new Object[]{cfgMap, inMap, outMap};
+		cfgMap = new HashMap <String, Object>(); //Configurations.
+		inMap = new HashMap <String, Object>(); //Input parameters.
+		outMap = new HashMap <String, Object>(); //Output parameters.
+		maps = new Object[]{cfgMap, inMap, outMap};
+	}
+
+	@Test(testName = "Test hello", enabled=true)
+	public void testHello() throws Exception {
 
 		HelloWorld hw = new HelloWorld();
-		Result result = hw.invoke("doFoo", maps, request, response);
+		Result result = hw.invoke("sayHello", maps, request, response);
 		assertEquals(result.getParamByName("message").getValue(), "Hello World!");
+	}
+
+	@Test(testName = "Test goodbye", enabled=false)
+	public void testGoodbye() throws Exception {
+
+		HelloWorld hw = new HelloWorld();
+		Result result = hw.invoke("sayGoodbye", maps, request, response);
+		assertEquals(result.getParamByName("message").getValue(), "Goodbye World!");
 	}
 }

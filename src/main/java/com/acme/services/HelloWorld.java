@@ -19,6 +19,8 @@ public class HelloWorld implements JavaService2{
 
 		Result result = new Result();
 		try{
+
+			//TODO: Do something different depending on the name of the operation, passed in opId.
 			Param message = new Param("message", "Hello World!", "string");
 			result.addParam(message);
 		}

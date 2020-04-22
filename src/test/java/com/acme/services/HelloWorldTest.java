@@ -48,11 +48,19 @@ public class HelloWorldTest {
 		assertEquals(result.getParamByName("message").getValue(), "Hello World!");
 	}
 
-	@Test(testName = "Test goodbye", enabled=false)
+	@Test(testName = "Test goodbye", enabled=true)
 	public void testGoodbye() throws Exception {
 
 		HelloWorld hw = new HelloWorld();
 		Result result = hw.invoke("sayGoodbye", maps, request, response);
 		assertEquals(result.getParamByName("message").getValue(), "Goodbye World!");
+	}
+
+	@Test(testName = "Test undefined", enabled=true)
+	public void testUndefined() throws Exception {
+
+		HelloWorld hw = new HelloWorld();
+		Result result = hw.invoke("", maps, request, response);
+		assertEquals(result.getParamByName("message").getValue(), "No such operation!");
 	}
 }

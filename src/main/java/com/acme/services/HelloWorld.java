@@ -8,6 +8,7 @@ import com.konylabs.middleware.dataobject.Param;
 import com.konylabs.middleware.dataobject.Result;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,9 +21,16 @@ public class HelloWorld implements JavaService2{
 		Result result = new Result();
 		try{
 
-			//TODO: Do something different depending on the name of the operation, passed in opId.
-			Param message = new Param("message", "Hello World!", "string");
-			result.addParam(message);
+			HashMap<String, Object> inMap = (HashMap<String, Object>)maps[1];
+			HashMap<String, Object> headers = (HashMap<String, Object>)request.getHeaderMap();
+
+			//TODO: Need a better mechanism for switching ops than elseif.
+			if (opId.equals("sayHello")) result = sayHello(inMap, headers);
+			else if(opId.equals("sayGoodbye")) result = sayGoodbye(inMap, headers);
+			else {
+				Param error = new Param("message", "No such operation!", "string");
+				result.addParam(error);
+			}
 		}
 		catch (Exception e){
 
@@ -41,5 +49,19 @@ public class HelloWorld implements JavaService2{
 		finally {
 			return result;
 		}
+	}
+
+	private Result sayHello(HashMap<String, Object> inMap, HashMap<String, Object> headers){
+		Result result = new Result();
+		Param message = new Param("message", "Hello World!", "string");
+		result.addParam(message);
+		return result;
+	}
+
+	private Result sayGoodbye(HashMap<String, Object> inMap, HashMap<String, Object> headers){
+		Result result = new Result();
+		Param message = new Param("message", "Goodbye World!", "string");
+		result.addParam(message);
+		return result;
 	}
 }

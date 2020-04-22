@@ -12,12 +12,15 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class AddDatePostProcessor implements DataPostProcessor2{
-	private static final Logger LOGGER = Logger.getLogger( AddDatePostProcessor.class.getName() );
+public class TimestampPostProcessor implements DataPostProcessor2{
 
-	public Object execute(Result result, DataControllerRequest request, DataControllerResponse response) throws Exception {
+	public static final String TIMESTAMP_FORMAT = "yyyy-MM-dd'T'HH:mm";
+
+	private static final Logger LOGGER = Logger.getLogger( TimestampPostProcessor.class.getName() );
+
+	public Result execute(Result result, DataControllerRequest request, DataControllerResponse response) throws Exception {
 		try{
-			String timeStamp = new SimpleDateFormat("yyyy-MM-ddTHH:mm").format(new Date());
+			String timeStamp = new SimpleDateFormat(TIMESTAMP_FORMAT).format(new Date());
 			Param message = new Param("timestamp", timeStamp, "string");
 			result.addParam(message);
 		}
@@ -34,6 +37,8 @@ public class AddDatePostProcessor implements DataPostProcessor2{
 					}
 			);
 		}
-		return result;
+		finally {
+			return result;
+		}
 	}
 }

@@ -10,7 +10,7 @@ import java.util.HashMap;
 import static org.mockito.Mockito.*;
 import static org.testng.Assert.*;
 
-public class HelloWorldTest {
+public class HelloWorldServiceTest {
 
 	DataControllerRequest request;
 	HashMap<String, Object> headers;
@@ -23,7 +23,7 @@ public class HelloWorldTest {
 	Object[] maps;
 
 	@BeforeTest
-	public void mockInvocation(){
+	public void prepare(){
 
 		//Let's initialise the request, response, config, inputs, outputs and headers to pretend this is a Fabric runtime.
 
@@ -43,7 +43,7 @@ public class HelloWorldTest {
 	@Test(testName = "Test hello", enabled=true)
 	public void testHello() throws Exception {
 
-		HelloWorld hw = new HelloWorld();
+		HelloWorldService hw = new HelloWorldService();
 		Result result = hw.invoke("sayHello", maps, request, response);
 		assertEquals(result.getParamByName("message").getValue(), "Hello World!");
 	}
@@ -51,7 +51,7 @@ public class HelloWorldTest {
 	@Test(testName = "Test goodbye", enabled=true)
 	public void testGoodbye() throws Exception {
 
-		HelloWorld hw = new HelloWorld();
+		HelloWorldService hw = new HelloWorldService();
 		Result result = hw.invoke("sayGoodbye", maps, request, response);
 		assertEquals(result.getParamByName("message").getValue(), "Goodbye World!");
 	}
@@ -59,7 +59,7 @@ public class HelloWorldTest {
 	@Test(testName = "Test undefined", enabled=true)
 	public void testUndefined() throws Exception {
 
-		HelloWorld hw = new HelloWorld();
+		HelloWorldService hw = new HelloWorldService();
 		Result result = hw.invoke("", maps, request, response);
 		assertEquals(result.getParamByName("message").getValue(), "No such operation!");
 	}

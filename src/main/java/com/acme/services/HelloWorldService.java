@@ -12,9 +12,9 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class HelloWorld implements JavaService2{
+public class HelloWorldService implements JavaService2{
 
-	private static final Logger LOGGER = Logger.getLogger( HelloWorld.class.getName() );
+	private static final Logger LOGGER = Logger.getLogger( HelloWorldService.class.getName() );
 
 	public Result invoke(String opId, Object[] maps, DataControllerRequest request, DataControllerResponse response){
 
@@ -35,11 +35,10 @@ public class HelloWorld implements JavaService2{
 		catch (Exception e){
 
 			LOGGER.log(Level.SEVERE, "Hello world failed.\n\t" +
-							"due to exception: {1}\n\t" +
-							"with message: {2}\n\t" +
-							"Stack trace: {3}",
+							"due to exception: {0}\n\t" +
+							"with message: {1}\n\t" +
+							"Stack trace: {2}",
 					new Object[]{
-							opId,
 							e.getClass(),
 							e.getMessage(),
 							ExceptionUtils.getStackTrace(e)

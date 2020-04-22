@@ -1,0 +1,5 @@
+# Avoid versioning Fabric exports in zip format.
+*.zip
+
+# Avoid versioning the Java JAR files from the export.
+*.jar

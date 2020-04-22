@@ -1,0 +1,11 @@
+{
+  "icon" : "icon.png",
+  "subType" : "customapp",
+  "description" : "FabricJavaSample",
+  "version" : "1.0",
+  "intSvcs" : [ {
+    "name" : "JavaServiceSample",
+    "version" : "1.0",
+    "etag" : "a4c496e7-c07c-4bd4-b56d-6f0bd6f38cdd"
+  } ]
+}

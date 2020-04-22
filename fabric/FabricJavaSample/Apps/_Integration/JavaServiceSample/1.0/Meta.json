@@ -1,0 +1,7 @@
+{
+  "serviceType" : "integration",
+  "jars" : [ {
+    "name" : "HelloWorld-1.0-SNAPSHOT.jar",
+    "type" : "servicejar"
+  } ]
+}

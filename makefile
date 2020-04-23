@@ -1,17 +1,24 @@
 SHELL = /usr/bin/env bash
 
+fabric_dir=fabric
+fabric_proj=FabricJavaSample
+
+java_dir=java
+java_proj=HelloWorld
+
 build: clean buildj copy zip
-	echo "Done!"
+	printf "\nDone!\nNow import $(fabric_proj).zip into Fabric.\n\n"
 
 clean:
-	find fabric -name '*.jar' -delete
+	find $(fabric_dir) -name '*.jar' -delete
+	cd $(java_dir)/$(java_proj) && mvn clean
 	find . -name '*.zip' -delete
 
 buildj:
-	cd java/HelloWorld && mvn package
+	cd $(java_dir)/$(java_proj) && mvn package
 
 copy:
-	cp java/**/target/*.jar fabric/FabricJavaSample/Apps/_JARs/
+	cp $(java_dir)/$(java_proj)/target/*.jar $(fabric_dir)/$(fabric_proj)/Apps/_JARs/
 
 zip:
-	zip --recurse-paths --display-bytes FabricJavaSample.zip fabric/FabricJavaSample --exclude \*.DS_Store \*thumbs.db \*.desktop.ini
+	zip --recurse-paths --display-bytes $(fabric_proj).zip $(fabric_dir)/$(fabric_proj) --exclude \*.DS_Store \*thumbs.db \*.desktop.ini

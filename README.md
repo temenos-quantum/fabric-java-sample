@@ -1,4 +1,4 @@
-# fabric-java-sample
+# A Sample Fabric Application with Java Custom Code
 
 A dummy Fabric application showcasing a sample Java service, pre-processor and post-processor.
 

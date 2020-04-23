@@ -20,6 +20,30 @@ both the Fabric application and the source code for its Java dependencies in the
 The `fabric/FabricJavaSample` subdirectory stores the Fabric application as it would result from exporting and
 extracting the Fabric application into a directory by the same name.
 
+As this is just a *"Hello World"* example, the app itself is not very interesting. **The intent of this project and repository 
+is to show how to develop, test, version and use custom Java code in Fabric.**
+
+In the image below, notice:
+
+1. The Fabric app has one single service of the ***Java Adapter*** type.
+2. The JAR generated from the Java source code in this repository has been uploaded and selected as part of the service
+definition.
+
+![Service definition](pics/fabric-app-1.-service-def.png "Service definition")
+
+In the image below notice:
+
+1. The class `com.acme.services.HelloWorldService` has been selected as the supporting implementation of the service operation. Note that you should ideally implement each service in a different class.
+2. The class `com.acme.pre.TimestampPreProcessor` has been selected as the pre-processor for the service operation.
+3. The class `com.acme.pre.TimestampPostProcessor` has been selected as the post-processor for the service operation.
+
+The service has three operations, all of which use the pre-processor and post-processors defined by the 
+`com.acme.pre.TimestampPreProcessor` and `com.acme.pre.TimestampPostProcessor` classes respectively.
+
+![Service definition](pics/fabric-app-2-ops-config.png "Logo Title Text 1")
+
+
+
 ## The Java Dependencies
 
 The `java/HelloWorld` subdirectory stores the source code for a Java project which implements a custom service 

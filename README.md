@@ -55,6 +55,14 @@ importing it.
 3. Compress the `fabric/FabricJavaSample` directory in Zip format.
 4. Import the resulting Zip file into the Fabric Console.
 
+The end result just before step #3 should be that your `_JARs` subdirectory looks like this:
+
+```
+fabric/FabricJavaSample/Apps/_JARs/
+├── HelloWorld-1.0-SNAPSHOT.jar
+└── HelloWorld-1.0-SNAPSHOT.meta.json
+```
+
 ## Implementation Notes
 
 About the Java dependencies under the `java/HelloWorld` subdirectory:

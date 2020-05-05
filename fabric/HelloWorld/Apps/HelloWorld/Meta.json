@@ -1,0 +1,11 @@
+{
+  "icon" : "icon.png",
+  "subType" : "customapp",
+  "description" : "HelloWorld",
+  "version" : "1.0",
+  "intSvcs" : [ {
+    "name" : "hello-world-java-service",
+    "version" : "1.0",
+    "etag" : "523795c7-b021-4c90-aaa0-64fb01f1ad26"
+  } ]
+}

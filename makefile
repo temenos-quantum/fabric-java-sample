@@ -1,12 +1,12 @@
 SHELL = /usr/bin/env bash
 
 fabric_dir=fabric
-fabric_proj=FabricJavaSample
+fabric_proj=HelloWorld
 
 java_dir=java
 java_proj=HelloWorld
 
-build: clean buildj copy zip
+build: clean javac copy zip
 	printf "\nDone!\nNow import $(fabric_proj).zip into Fabric.\n\n"
 
 clean:
@@ -14,7 +14,7 @@ clean:
 	cd $(java_dir)/$(java_proj) && mvn clean
 	find . -name '*.zip' -delete
 
-buildj:
+javac:
 	cd $(java_dir)/$(java_proj) && mvn package
 
 copy:

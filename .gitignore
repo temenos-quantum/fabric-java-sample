@@ -1,2 +1,3 @@
 # Avoid versioning Fabric exports in zip format.
 *.zip
+.idea

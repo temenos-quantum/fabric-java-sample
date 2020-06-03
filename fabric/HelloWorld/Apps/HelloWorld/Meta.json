@@ -4,8 +4,8 @@
   "description" : "HelloWorld",
   "version" : "1.0",
   "intSvcs" : [ {
-    "name" : "hello-world-java-service",
+    "name" : "hello-world",
     "version" : "1.0",
-    "etag" : "523795c7-b021-4c90-aaa0-64fb01f1ad26"
+    "etag" : "63d56448-83c0-426d-af21-4e85df1b60ac"
   } ]
 }

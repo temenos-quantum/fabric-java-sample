@@ -45,7 +45,7 @@ fabric_pssw=
 
 # Export/download the Fabric app from the Fabric Console and decompress it to the local file system.
 export:
-	rm $(fabric_proj).zip
+	rm -f $(fabric_proj).zip
 	fabric export --account $(fabric_acct) --user $(fabric_user) --password $(fabric_pssw) --app $(fabric_proj) --file $(fabric_proj).zip
 	rm -rf fabric/$(fabric_proj)
 	unzip $(fabric_proj).zip -d fabric/$(fabric_proj)

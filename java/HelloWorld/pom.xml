@@ -8,6 +8,10 @@
     <artifactId>HelloWorld</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <build>
+        <finalName>HelloWorld</finalName>
+    </build>
+
     <dependencies>
 
         <!-- https://mvnrepository.com/artifact/com.kony.middleware/middleware-api -->

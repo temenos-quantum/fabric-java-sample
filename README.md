@@ -1,6 +1,6 @@
 # A Sample Fabric Application with Java Custom Code
 
-A dummy Fabric application showcasing a sample Java service, pre-processor and post-processor.
+A *Hello World* Fabric application showcasing a sample Java service, pre-processor and post-processor.
 
 ## Repository Structure
 
@@ -10,14 +10,17 @@ both the Fabric application and the source code for its Java dependencies in the
 ```
 .
 ├── fabric
-│   └── FabricJavaSample
+│   └── HelloWorld
+│      └── Apps
 └── java
-    └── HelloWorld
+	└── HelloWorld
+		├── pom.xml
+		└── src
 ```
 
 ## The Fabric App
 
-The `fabric/FabricJavaSample` subdirectory stores the Fabric application as it would result from exporting and
+The `fabric/HelloWorld` subdirectory stores the Fabric application as it would result from exporting and
 extracting the Fabric application into a directory by the same name.
 
 As this is just a *"Hello World"* example, the app itself is not very interesting. **The intent of this project and repository
@@ -25,7 +28,7 @@ is to show how to develop, test, version and use custom Java code in Fabric.**
 
 In the image below shows the service definition.
 
-![Service definition](pics/fabric-app-1.-service-def.png "Service definition")
+![Service definition](pics/fabric-app-1-service-def.png "Service definition")
 
 1. The Fabric app has one single service of the ***Java Adapter*** type.
 2. The JAR generated from the Java source code in this repository has been uploaded and selected as part of the service
@@ -44,7 +47,7 @@ operation. Note that you should ideally implement each service in a different cl
 
 The `java/HelloWorld` subdirectory stores the source code for a Java project which implements a custom service
 `HelloWorldService`, a pre-processor `TimestampPreProcessor` and a post-processor `TimestampPostProcessor` which
-are in turn used by the Fabric application stored under `fabric/FabricJavaSample`. It includes:
+are in turn used by the Fabric application stored under `fabric/HelloWorld`. It includes:
 
 ### Class *com.acme.services.HelloWorldService*
 
@@ -66,21 +69,21 @@ Notice that `fabric/.gigignore` makes sure that you **don't push into source con
 would result from exporting the app from the Fabric Console and decompressing it. This is meant to help enforce **the
 best practice that compressed files and binaries should not go into source control**.
 
-As a consequence, just compressing and importing the contents of `fabric/FabricJavaSample` will not result in a working
+As a consequence, just compressing and importing the contents of `fabric/HelloWorld` will not result in a working
 Fabric application. You will need to first build the Java dependencies and then add them to the Fabric app bundle before
 importing it.
 
 **Steps:**
 
 1. Build the Java project in the `java/HelloWorld` directory. You can do this by stepping into it and running `mvn package`.
-2. Copy the resulting JAR file from the `java/HelloWorld/target/` directory to the `fabric/FabricJavaSample/Apps/_JARs/` directory.
-3. Compress the `fabric/FabricJavaSample` directory in Zip format.
+2. Copy the resulting JAR file from the `java/HelloWorld/target/` directory to the `fabric/HelloWorld/Apps/_JARs/` directory.
+3. Compress the `fabric/HelloWorld` directory in Zip format.
 4. Import the resulting Zip file into the Fabric Console.
 
 The end result just before step #3 should be that your `_JARs` subdirectory looks like this:
 
 ```
-fabric/FabricJavaSample/Apps/_JARs/
+fabric/HelloWorld/Apps/_JARs/
 ├── HelloWorld-1.0-SNAPSHOT.jar
 └── HelloWorld-1.0-SNAPSHOT.meta.json
 ```
@@ -95,10 +98,10 @@ You will see the Maven and Zip output, and at the end you'll see this message.
 
 ```
 Done!
-Now import FabricJavaSample.zip into Fabric.
+Now import HelloWorld.zip into Fabric.
 ```
 
-As the message states, you can now import `FabricJavaSample.zip` into the Fabric Console. Either manually through the UI, or by using the Fabric CLI.
+As the message states, you can now import `HelloWorld.zip` into the Fabric Console. Either manually through the UI, or by using the Fabric CLI.
 
 ## Implementation Notes
 

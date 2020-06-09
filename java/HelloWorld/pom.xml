@@ -8,9 +8,9 @@
     <artifactId>HelloWorld</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <build>
+    <!--build>
         <finalName>HelloWorld</finalName>
-    </build>
+    </build-->
 
     <dependencies>
 

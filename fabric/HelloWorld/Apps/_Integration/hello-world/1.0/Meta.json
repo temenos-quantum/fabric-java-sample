@@ -1,7 +1,7 @@
 {
   "serviceType" : "integration",
   "jars" : [ {
-    "name" : "HelloWorld.jar",
+    "name" : "HelloWorld-1.0-SNAPSHOT.jar",
     "type" : "servicejar"
   } ],
   "description" : "A sample Fabric service showcasing custom Java code that simply says Hello World"

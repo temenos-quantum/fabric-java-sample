@@ -30,7 +30,7 @@ copy:
 
 # Zip up the Fabric app for import/upload.
 zip:
-	zip --recurse-paths --display-bytes $(fabric_proj).zip $(fabric_dir)/$(fabric_proj) --exclude \*.DS_Store \*thumbs.db \*.desktop.ini
+	cd $(fabric_dir)/$(fabric_proj) && zip --recurse-paths --display-bytes ../../$(fabric_proj).zip * --exclude \*.DS_Store \*thumbs.db \*.desktop.ini
 
 # Avoid pushing your Fabric password to source control.
 conf-git-filters:

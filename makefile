@@ -56,4 +56,4 @@ export:
 
 # Import/upload the already compressed Fabric app into the Fabric Console.
 import:
-	fabric import --account $(fabric_acct) --user $(fabric_user) --password $(fabric_pssw) --file $(fabric_proj).zip
+	fabric import --account $(fabric_acct) --user $(fabric_user) --password $(fabric_pssw) --file $(fabric_proj).zip --app $(fabric_proj)

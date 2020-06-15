@@ -36,12 +36,16 @@ zip:
 conf-git-filters:
 	git config --global filter.fabric_makefile.clean 'sed -e "s/\(.*fabric_acct.*=\).*/\1/g; s/\(.*fabric_user.*=\).*/\1/g; s/\(.*fabric_pssw.*=
 
+# Note: Set these three as environment variables so that switching branches won't blank them.
 # The 9 digit Fabric account ID —e.g.: 100000001
 fabric_acct=
 # The developer's user for the Fabric Console —e.g.: jimi.hendrix@purple.com
 fabric_user=
 # The developer's password for the Fabric Console.
 fabric_pssw=
+
+show:
+	printf "acct: %s\nuser: %s\npssw: %s\n" $(fabric_acct) $(fabric_user) $(fabric_pssw)
 
 # Export/download the Fabric app from the Fabric Console and decompress it to the local file system.
 export:

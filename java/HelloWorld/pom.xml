@@ -12,64 +12,13 @@
         <finalName>HelloWorld</finalName>
     </build>
 
+	<parent>
+        <groupId>com.acme</groupId>
+        <artifactId>SampleApp</artifactId>
+        <version>1.0-SNAPSHOT</version>
+	</parent>
+
     <dependencies>
-
-        <!-- https://mvnrepository.com/artifact/com.kony.middleware/middleware-api -->
-        <dependency>
-            <groupId>com.kony.middleware</groupId>
-            <artifactId>middleware-api</artifactId>
-            <version>[8.4.3.3,)</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <!--Provided by the Fabric runtimes from 8.4.3 onward-->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>[3.8.1,)</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>[2.6.2,)</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <!--Testing only-->
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>7.1.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>3.3.3</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!--Testing, so we can mock com.konylabs.middleware.controller.DataControllerRequest-->
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>[4.5.12,)</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>[2.8.2,)</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>[2.8.2,)</version>
-            <scope>test</scope>
-        </dependency>
-
+        <!--Inherit all dependencies from the parent POM file-->
     </dependencies>
 </project>

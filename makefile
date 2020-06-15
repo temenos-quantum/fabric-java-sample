@@ -17,12 +17,12 @@ build: clean javac copy zip
 # Run Maven clean and remove all .jar and .zip files from this directory.
 clean:
 	find $(fabric_dir) -name '*.jar' -delete
-	cd $(java_dir)/$(java_proj) && mvn clean
+	cd $(java_dir) && mvn clean
 	find . -name '*.zip' -delete
 
 # Compile the Java assets.
 javac:
-	cd $(java_dir)/$(java_proj) && mvn package
+	cd $(java_dir) && mvn package
 
 # Copy the JAR files built into the Fabric app's directory.
 copy:

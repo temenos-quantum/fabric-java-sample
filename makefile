@@ -8,7 +8,6 @@ fabric_dir=fabric
 fabric_proj=HelloWorld
 
 java_dir=java
-java_proj=HelloWorld
 
 # Compile the Java assets, copy them into the Fabric app and zip it up.
 build: clean javac copy zip
@@ -26,7 +25,7 @@ javac:
 
 # Copy the JAR files built into the Fabric app's directory.
 copy:
-	cp $(java_dir)/$(java_proj)/target/*.jar $(fabric_dir)/$(fabric_proj)/Apps/_JARs/
+	cp $(java_dir)/**/target/*.jar $(fabric_dir)/$(fabric_proj)/Apps/_JARs/
 
 # Zip up the Fabric app for import/upload.
 zip:

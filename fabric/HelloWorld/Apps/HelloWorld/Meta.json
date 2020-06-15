@@ -4,6 +4,10 @@
   "description" : "HelloWorld",
   "version" : "1.0",
   "intSvcs" : [ {
+    "name" : "colors",
+    "version" : "1.0",
+    "etag" : "964cb850-a5ea-4079-8064-a380e9d33194"
+  }, {
     "name" : "hello-world",
     "version" : "1.0",
     "etag" : "63d56448-83c0-426d-af21-4e85df1b60ac"

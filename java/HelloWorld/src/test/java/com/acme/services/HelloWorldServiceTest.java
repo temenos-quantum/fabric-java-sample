@@ -63,4 +63,10 @@ public class HelloWorldServiceTest {
 		Result result = hw.invoke("", maps, request, response);
 		assertEquals(result.getParamByName("message").getValue(), "No such operation!");
 	}
+
+	@Test(testName = "failed test", enabled=true)
+	public void testFailed() throws Exception {
+
+		assertTrue(false);
+	}
 }

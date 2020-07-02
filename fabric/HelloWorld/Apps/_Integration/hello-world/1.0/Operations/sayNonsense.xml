@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<service serviceGroup="" cachable="false" cacheduration="" description="" endpoint="default" groupType="" id="sayNonsense" passwordencrypted="false" security="authorized_app_user" type="javaConnector" smscode="" smsenabled="false">
+<service serviceGroup="" cachable="false" cacheduration="" description="" endpoint="default" groupType="" id="sayNonsense" passwordencrypted="false" security="public" type="javaConnector" smscode="" smsenabled="false">
     <service-config>
         <config-param api-version="" appid="" name="preprocessorname" value="com.acme.pre.TimestampPreProcessor"/>
         <config-param api-version="" appid="" name="postprocessorname" value="com.acme.post.TimestampPostProcessor"/>

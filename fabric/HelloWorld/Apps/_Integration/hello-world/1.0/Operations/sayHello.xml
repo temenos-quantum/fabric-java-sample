@@ -7,7 +7,7 @@
         <config-param api-version="" appid="" name="postprocessorJS" value=""/>
         <config-param api-version="" appid="" name="preprocessorRules" value=""/>
         <config-param api-version="" appid="" name="postprocessorRules" value=""/>
-        <config-param api-version="" appid="" name="kony_http_supported_methods" value="POST"/>
+        <config-param api-version="" appid="" name="kony_http_supported_methods" value="GET"/>
         <config-param api-version="" appid="" name="className" value="com.acme.services.HelloWorldService"/>
         <config-param api-version="" appid="" name="methodName" value="sayHello"/>
         <config-param api-version="" appid="" name="sockettimeout" value=""/>

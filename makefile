@@ -62,7 +62,7 @@ import:
 # Package the custom hooks to be executed by App Factory.
 hooks:
 	cd appfactory/hooks && find . -name '*.zip' -delete
-	cd appfactory/hooks && zip --recurse-paths --display-bytes pre_build.zip pre_build --exclude \*.DS_Store \*thumbs.db \*.desktop.ini
-	cd appfactory/hooks && zip --recurse-paths --display-bytes post_build.zip post_build --exclude \*.DS_Store \*thumbs.db \*.desktop.ini
-	cd appfactory/hooks && zip --recurse-paths --display-bytes post_deploy.zip post_deploy --exclude \*.DS_Store \*thumbs.db \*.desktop.ini
+	cd appfactory/hooks/pre_build   && zip --recurse-paths --display-bytes ../pre_build.zip   * --exclude \*.DS_Store \*thumbs.db \*.desktop.ini
+	cd appfactory/hooks/post_build  && zip --recurse-paths --display-bytes ../post_build.zip  * --exclude \*.DS_Store \*thumbs.db \*.desktop.ini
+	cd appfactory/hooks/post_deploy && zip --recurse-paths --display-bytes ../post_deploy.zip * --exclude \*.DS_Store \*thumbs.db \*.desktop.ini
 	cd appfactory/hooks && find . -name '*.zip'

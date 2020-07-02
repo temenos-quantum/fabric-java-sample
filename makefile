@@ -58,3 +58,11 @@ export:
 # Import/upload the already compressed Fabric app into the Fabric Console.
 import:
 	fabric import --account $(fabric_acct) --user $(fabric_user) --password $(fabric_pssw) --file $(fabric_proj).zip
+
+# Package the custom hooks to be executed by App Factory.
+hooks:
+	cd appfactory/hooks && find . -name '*.zip' -delete
+	cd appfactory/hooks && zip --recurse-paths --display-bytes pre_build.zip pre_build --exclude \*.DS_Store \*thumbs.db \*.desktop.ini
+	cd appfactory/hooks && zip --recurse-paths --display-bytes post_build.zip post_build --exclude \*.DS_Store \*thumbs.db \*.desktop.ini
+	cd appfactory/hooks && zip --recurse-paths --display-bytes post_deploy.zip post_deploy --exclude \*.DS_Store \*thumbs.db \*.desktop.ini
+	cd appfactory/hooks && find . -name '*.zip'

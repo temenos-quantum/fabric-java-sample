@@ -1,0 +1,5 @@
+<project name="post-deploy" default="main">
+	<target name="main" depends="">
+		<echo message="Post-deploy hook executed!" />
+	</target>
+</project>

@@ -1,0 +1,5 @@
+<project name="pre-build" default="main">
+	<target name="main" depends="">
+		<echo message="Pre-build hook executed!" />
+	</target>
+</project>

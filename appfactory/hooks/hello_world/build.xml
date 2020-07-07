@@ -1,5 +1,6 @@
 <project name="post-build" default="main">
 	<target name="main" depends="">
-		<echo message="Post-build hook executed!" />
+		<!--Call with -Dmessage=Foo-->
+		<echo message="Hello world: ${message}"/>
 	</target>
 </project>

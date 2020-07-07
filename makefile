@@ -10,6 +10,7 @@ fabric_proj=HelloWorld
 java_dir=java
 java_proj=HelloWorld
 
+junk=\*.DS_Store \*thumbs.db \*.desktop.ini
 # Compile the Java assets, copy them into the Fabric app and zip it up.
 build: clean javac copy zip
 	printf "\nDone!\nNow import $(fabric_proj).zip into Fabric.\n\n"
@@ -30,7 +31,7 @@ copy:
 
 # Zip up the Fabric app for import/upload.
 zip:
-	cd $(fabric_dir)/$(fabric_proj) && zip --recurse-paths --display-bytes ../../$(fabric_proj).zip * --exclude \*.DS_Store \*thumbs.db \*.desktop.ini
+	cd $(fabric_dir)/$(fabric_proj) && zip --recurse-paths --display-bytes ../../$(fabric_proj).zip * --exclude $(junk)
 
 # Avoid pushing your Fabric password to source control.
 conf-git-filters:
@@ -62,8 +63,4 @@ import:
 # Package the custom hooks to be executed by App Factory.
 hooks:
 	cd appfactory/hooks && find . -name '*.zip' -delete
-	cd appfactory/hooks/pre_build   && zip --recurse-paths --display-bytes ../pre_build.zip   * --exclude \*.DS_Store \*thumbs.db \*.desktop.ini
-	cd appfactory/hooks/post_build  && zip --recurse-paths --display-bytes ../post_build.zip  * --exclude \*.DS_Store \*thumbs.db \*.desktop.ini
-	cd appfactory/hooks/post_deploy && zip --recurse-paths --display-bytes ../post_deploy.zip * --exclude \*.DS_Store \*thumbs.db \*.desktop.ini
-	cd appfactory/hooks/test_apis   && zip --recurse-paths --display-bytes ../test_apis.zip * --exclude \*.DS_Store \*thumbs.db \*.desktop.ini
-	cd appfactory/hooks && find . -name '*.zip'
+	cd ./appfactory/hooks/hello_world && zip --recurse-paths --display-bytes ../hello_world.zip build.xml

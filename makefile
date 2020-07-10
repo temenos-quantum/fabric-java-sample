@@ -65,4 +65,5 @@ hooks:
 	cd appfactory/hooks && find . -name '*.zip' -delete
 	cd ./appfactory/hooks/hello_world && zip --recurse-paths --display-bytes ../hello_world.zip build.xml
 	cd ./appfactory/hooks/test_apis && zip --recurse-paths --display-bytes ../test_apis.zip pom.xml src/main/groovy
+	cd ./appfactory/hooks/check_env && zip --recurse-paths --display-bytes ../check_env.zip build.xml *.sh
 	ls -lh ./appfactory/hooks/ | grep zip

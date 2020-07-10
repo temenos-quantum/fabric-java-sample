@@ -1,0 +1,23 @@
+<project name="post-build" default="main">
+	<target name="main" depends="">
+		<!--Call with -Dmessage=Foo-->
+		<echo message="Checking environment..."/>
+
+		<exec executable="/bin/bash">
+			<arg value="check_os.sh"/>
+		</exec>
+
+		<exec executable="/bin/bash">
+			<arg value="check_npm.sh"/>
+		</exec>
+
+		<exec executable="/bin/bash">
+			<arg value="check_yum.sh"/>
+		</exec>
+
+		<exec executable="/bin/bash">
+			<arg value="jenkins_tools.sh"/>
+		</exec>
+
+	</target>
+</project>

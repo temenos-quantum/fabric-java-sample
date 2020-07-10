@@ -13,37 +13,47 @@ String domain = System.properties["domain"] ?: "konycloud.com" //sit2-konycloud.
 String port = System.properties["port"] ?: "443"
 Boolean ignoreSSLIssues = System.properties["ignoreSSLIssues"] ?: false
 
+String service = "hello-world"
+String defaultURI = """https://${host}.${domain}:${port}/services/"""
+
 println("""
     Host: ${host}
     Domain: ${domain}
     Port: ${port}
     Ignore SSL Issues: ${ignoreSSLIssues}
+    Service: ${service}
+    Base URL: ${defaultURI}
 
 """)
 
-String service = "hello-world"
-String defaultURI = """https://${host}.${domain}:${port}/services/"""
-println("defaultURI: ${defaultURI}")
 def http = new HTTPBuilder( defaultURI )
 
 //TODO: only do this if a flag for it is passed from the command line.
 http.ignoreSSLIssues()
 
-http.request( GET, JSON ) { req ->
+def getAndAssert = { operation, count, status, result ->
+    http.request( GET, JSON ) { req ->
 
-    uri.path = "${service}/sayHello"
+        uri.path = "${service}/${operation}"
 
-	println("GET ${uri}")
+        println("GET ${uri}")
 
-    response.success = { resp, json ->
-        assert resp.status == 200
-        assert json.size() == 4
-        println "Query response: " + json
-        assert json.message == 'Hello World!'
-    }
+        response.success = { resp, json ->
+            assert resp.status == status
+            assert json.size() == count
+            println "Query response: " + json
+            assert json.message == result
+        }
 
-    // called only for a 404 (not found) status code:
-    response.'404' = { resp ->
-        println 'Not found'
+        // called only for a 404 (not found) status code:
+        response.'404' = { resp ->
+            println 'Not found'
+        }
     }
 }
+
+getAndAssert("sayHello", 4, 200, "Hello World!")
+getAndAssert("sayGoodbye", 4, 200, "Goodbye World!")
+getAndAssert("sayNonsense", 4, 200, "No such operation!")
+getAndAssert("", 2, 200, null)
+

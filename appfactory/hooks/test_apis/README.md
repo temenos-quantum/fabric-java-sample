@@ -7,7 +7,7 @@ the published services.
 
 Just invoke:
 
-    mvn groovy:execute --batch-mode -Ddomain=konycloud.com -Dhost=[host name] -DignoreSSLIssues=true
+    mvn groovy:execute --batch-mode -DignoreSSLIssues=true -Ddomain=konycloud.com -Dhost=[host name]
 
 ## Implementation Notes
 
